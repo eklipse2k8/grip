@@ -4,7 +4,7 @@ else
   require 'ftools'
 end
 
-require 'mongo_mapper'
+require 'mongoid'
 require 'mongo/gridfs'
 require 'mime/types'
 require 'tempfile'
