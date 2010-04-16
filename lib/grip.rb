@@ -5,7 +5,7 @@ else
 end
 
 require 'mongoid'
-require 'mongo/gridfs'
+require 'mongo'
 require 'mime/types'
 require 'tempfile'
 require 'miso'
