@@ -4,10 +4,7 @@ module Grip
     def self.included(base)
       base.extend ClassMethods
       base.instance_eval do
-        many  :attachments,
-              :as => :owner,
-              :class_name => "Grip::Attachment",
-              :dependent => :destroy
+        embeds_many  :attachments
       end
     end
 
