@@ -58,13 +58,13 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<factory_girl>, ["= 1.2.3"])
       s.add_development_dependency(%q<shoulda>, ["= 2.10.2"])
     else
-      s.add_dependency(%q<mongo_mapper>, [">= 2.0.0.beta3"])
+      s.add_dependency(%q< mongoid>, [">= 2.0.0.beta3"])
       s.add_dependency(%q<miso>, [">= 0.3.1"])
       s.add_dependency(%q<factory_girl>, ["= 1.2.3"])
       s.add_dependency(%q<shoulda>, ["= 2.10.2"])
     end
   else
-    s.add_dependency(%q<mongo_mapper>, [">= 2.0.0.beta3"])
+    s.add_dependency(%q<mongoid>, [">= 2.0.0.beta3"])
     s.add_dependency(%q<miso>, [">= 0.3.1"])
     s.add_dependency(%q<factory_girl>, ["= 1.2.3"])
     s.add_dependency(%q<shoulda>, ["= 2.10.2"])
