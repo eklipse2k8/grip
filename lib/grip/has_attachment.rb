@@ -32,11 +32,11 @@ module Grip
         end
 
       end
-i = 0
+@i = 0
       def set_callbacks_once
            
-        after_save :save_attachments unless i == 1
-        i = 1 unless i == 1
+        after_save :save_attachments unless @i == 1
+        @i = 1 unless @i == 1
         
       end
 
