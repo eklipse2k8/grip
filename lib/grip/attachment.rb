@@ -2,7 +2,7 @@ module Grip
   class Attachment
   include Mongoid::Document
 
-    embedded_in  :owner, : inverse_of => :attachment
+    embedded_in  :owner, :inverse_of => :attachment
                
 
 embeds_many :attached_variants    
