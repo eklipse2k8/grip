@@ -2,22 +2,22 @@ module Grip
   class Attachment
     include MongoMapper::Document
 
-    belongs_to  :owner,
-                :polymorphic => true
+    embedded_in  :owner, : inverse_of => :attachment
+               
 
-    many  :attached_variants,
+embeds_many :attached_variants    
+many  :attached_variants,
           :as => :owner,
           :class_name => "Grip::Attachment",
           :dependent => :destroy
 
-    key :owner_id, ObjectId, :required => true
-    key :owner_type, String, :required => true
+    
 
-    key :name, String
-    key :file_name, String
-    key :file_size, Integer
-    key :content_type, String
-    key :variants, Hash
+    field :name, :type => String
+    field :file_name, :type =>  String
+    field :file_size, :type => Integer
+    field :content_type, :type => String
+    field :variants, :type => Hash
 
     after_save      :build_variants
     before_destroy  :destroy_file
