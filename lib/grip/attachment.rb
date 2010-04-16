@@ -1,15 +1,12 @@
 module Grip
   class Attachment
-    include MongoMapper::Document
+  include Mongoid::Document
 
     embedded_in  :owner, : inverse_of => :attachment
                
 
 embeds_many :attached_variants    
-many  :attached_variants,
-          :as => :owner,
-          :class_name => "Grip::Attachment",
-          :dependent => :destroy
+
 
     
 
