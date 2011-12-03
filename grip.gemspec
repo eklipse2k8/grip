@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{grip}
-  s.version = "0.7.2"
+  s.version = "0.7.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["twoism", "jnunemaker"]
-  s.date = %q{2010-02-17}
-  s.description = %q{GridFS attachments for MongoMapper}
-  s.email = %q{signalstatic@gmail.com}
+  s.authors = ["twoism", "jnunemaker", "eklipse2k8"]
+  s.date = %q{2011-12-03}
+  s.description = %q{GridFS attachments for Mongoid w/ RMagick}
+  s.email = %q{jarjoura@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.markdown"
@@ -35,11 +35,11 @@ Gem::Specification.new do |s|
      "test/models.rb",
      "test/test_helper.rb"
   ]
-  s.homepage = %q{http://github.com/twoism/grip}
+  s.homepage = %q{http://github.com/eklipse2k8/grip}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
-  s.summary = %q{GridFS attachments for MongoMapper}
+  s.rubygems_version = %q{1.8.11}
+  s.summary = %q{GridFS attachments for Mongoid w/ RMagick}
   s.test_files = [
     "test/factories.rb",
      "test/grip_attachment_test.rb",
@@ -53,19 +53,19 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<mongoid>, [">= 2.0.0.beta3"])
-      s.add_runtime_dependency(%q<miso>, [">= 0.3.1"])
+      s.add_runtime_dependency(%q<mongoid>, [">= 2.2.4"])
+      s.add_runtime_dependency(%q<rmagick>, [">= 2.13.0"])
       s.add_development_dependency(%q<factory_girl>, ["= 1.2.3"])
       s.add_development_dependency(%q<shoulda>, ["= 2.10.2"])
     else
-      s.add_dependency(%q< mongoid>, [">= 2.0.0.beta3"])
-      s.add_dependency(%q<miso>, [">= 0.3.1"])
+      s.add_dependency(%q<mongoid>, [">= 2.2.4"])
+      s.add_dependency(%q<rmagick>, [">= 2.13.0"])
       s.add_dependency(%q<factory_girl>, ["= 1.2.3"])
       s.add_dependency(%q<shoulda>, ["= 2.10.2"])
     end
   else
-    s.add_dependency(%q<mongoid>, [">= 2.0.0.beta3"])
-    s.add_dependency(%q<miso>, [">= 0.3.1"])
+    s.add_dependency(%q<mongoid>, [">= 2.2.4"])
+    s.add_dependency(%q<rmagick>, [">= 2.13.0"])
     s.add_dependency(%q<factory_girl>, ["= 1.2.3"])
     s.add_dependency(%q<shoulda>, ["= 2.10.2"])
   end

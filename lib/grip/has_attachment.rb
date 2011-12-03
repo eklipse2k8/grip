@@ -1,4 +1,10 @@
+# encoding: utf-8
+
 module Grip
+    JPEGBestQuality = 80
+    JPEGMediumQuality = 65
+    JPEGLowQuality = 30
+    
   module HasAttachment
 
     def self.included(base)
@@ -71,17 +77,20 @@ module Grip
           end
         end
       end
-
-      def create_variant attachment, variant, dimensions
+      
+      def create_variant(attachment, variant, dimensions, quality=JPEGMediumQuality)
         tmp_file = uploaded_files[attachment.name.to_sym][:file]
         begin
           tmp   = Tempfile.new("#{attachment.name}_#{variant}")
-          image = Miso::Image.new(tmp_file.path)
-
-          image.crop(dimensions[:width], dimensions[:height])  if dimensions[:crop]
-          image.fit(dimensions[:width], dimensions[:height])   unless dimensions[:crop]
-
-          image.write(tmp.path)
+          
+          image = Magick::Image.read(tmp_file.path)[0]
+          image.resize_to_fill!(dimensions[:width], dimensions[:height])
+          
+          image.write(tmp.path) do |opts|
+              opts.format = "JPG"
+              opts.compression = JPEGCompression
+              opts.quality = quality
+          end
         rescue RuntimeError => e
           warn "Image was not resized. #{e}"
           tmp = tmp_file

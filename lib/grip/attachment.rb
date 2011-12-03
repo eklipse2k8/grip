@@ -1,15 +1,12 @@
+# encoding: utf-8
+
 module Grip
   class Attachment
   include Mongoid::Document
 
-    embedded_in  :owner, :inverse_of => :attachment
-               
-
-embeds_many :attached_variants    
-
-
+    embedded_in :owner, :inverse_of => :attachment
+    embeds_many :attached_variants    
     
-
     field :name, :type => String
     field :file_name, :type =>  String
     field :file_size, :type => Integer

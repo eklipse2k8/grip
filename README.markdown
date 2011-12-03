@@ -1,14 +1,15 @@
 grip
 ====
 
-GridFS attachments for MongoMapper.
+GridFS attachments for Mongoid.
+--> This fork uses RMagick instead of Miso.
 
 Installation
 ------------
 
 The grip gem is hosted on gemcutter.org and uses Miso (http://github.com/Fingertips/Miso) for image resizing
 
-    gem install miso grip
+    gem install grip
 
 Setup (Rails)
 -------------
@@ -30,12 +31,12 @@ Usage (See tests for better docs)
 
 Create a MongoMapper model and `include MongoMapper::Grip::HasAttachment` and call `has_grid_attachment :<attachment_name>` to the model. Then if your attachment is an image, you can specify a hash of variants along with their :width & :height.
 
-
-    class Doc
-      include MongoMapper::Document
+	class Doc
+      include Mongoid::Document
       include Grip::HasAttachment
+	  
       has_grid_attachment :image, :variants => {:thumb => {:width=>50,:height=>50}}
-    end
+	end
     
 To save a file to your model, just send any file to the symbol that you specified.
 
@@ -95,8 +96,9 @@ THE SOFTWARE.
 ***
 
 ###Credits
-c. burnett ( github.com/twoism || twoism.posterous.com )
-m. mongeau ( github.com/toastyapps )
+c. burnett ( http://github.com/twoism || twoism.posterous.com )
+m. mongeau ( http://github.com/toastyapps )
 
+eklipse2k8 ( http://github/eklipse2k8 )
 
 
