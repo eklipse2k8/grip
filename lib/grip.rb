@@ -10,7 +10,7 @@ require 'mongoid'
 require 'mongo'
 require 'mime/types'
 require 'tempfile'
-require 'miso'
+require 'rmagick'
 
 module Grip
   class GripError < StandardError;
